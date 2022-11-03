@@ -26,6 +26,7 @@ Dig into pose estimation in the photonvision docs and also on Chief Delphi, and 
 - Much of the tuning and fiddling with PhotonVision is actually in the web viewer and not in the robot code.
 - You will need to be sure to include the vendor dependencies (REV, CTRE, etc). for any motors.
 - When spinning a motor for the first time, _never_ go above 10% speed.
+- PhotonVision is available [here](http://10.69.60.99:5800/#/dashboard) You must be on the Private WiFi to see it.
 
 
 

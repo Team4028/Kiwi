@@ -36,3 +36,4 @@ Dig into pose estimation in the photonvision docs and also on Chief Delphi, and 
 - [PhotonVision Docs](https://docs.photonvision.org/en/latest/)
 - [PhotonVision Release page](https://github.com/PhotonVision/photonvision/releases)
 - [ChiefDelphi thread about AprilTags with PhotonVision](https://www.chiefdelphi.com/t/photonvision-beta-2023-apriltags/415626/250)
+- [WPILib Docs](https://docs.wpilib.org/en/stable/index.html)

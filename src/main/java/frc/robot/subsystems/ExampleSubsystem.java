@@ -10,17 +10,19 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import org.photonvision.PhotonCamera;
 import org.photonvision.targeting.PhotonTrackedTarget;
 
+import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ExampleSubsystem extends SubsystemBase {
   
   TalonSRX _motor;
   PhotonCamera _cam;
+  PIDController _pid;
   public ExampleSubsystem() {
     _motor = new TalonSRX(5);
     _cam = new PhotonCamera("AprilTagCam");
-   
-    
+    _pid = new PIDController(0.01, 0, 0);
   }
 
   @Override
@@ -30,15 +32,9 @@ public class ExampleSubsystem extends SubsystemBase {
     {
       PhotonTrackedTarget _target = result.getBestTarget();
       double _yaw = _target.getYaw();
-      if(_yaw < -6){
-        _motor.set(ControlMode.PercentOutput, .1);
+      
+        _motor.set(ControlMode.PercentOutput, MathUtil.clamp(_pid.calculate(_yaw, 0) ,-0.2, 0.2));
         System.out.println(_yaw);
-      } else if(_yaw > 6){
-        _motor.set(ControlMode.PercentOutput, -.1);
-        System.out.println(_yaw);
-      } else {
-        _motor.set(ControlMode.PercentOutput, 0);
-      }
     } else {
       _motor.set(ControlMode.PercentOutput, 0);
     }

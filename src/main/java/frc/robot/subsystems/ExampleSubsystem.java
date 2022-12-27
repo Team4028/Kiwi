@@ -21,8 +21,8 @@ public class ExampleSubsystem extends SubsystemBase {
   PIDController _pid;
   public ExampleSubsystem() {
     _motor = new TalonSRX(5);
-    _cam = new PhotonCamera("AprilTagCam");
-    _pid = new PIDController(0.01, 0, 0);
+    _cam = new PhotonCamera("HD_Webcam_C525");
+    _pid = new PIDController(0.008, 0, 0);
   }
 
   @Override
@@ -33,7 +33,7 @@ public class ExampleSubsystem extends SubsystemBase {
       PhotonTrackedTarget _target = result.getBestTarget();
       double _yaw = _target.getYaw();
       
-        _motor.set(ControlMode.PercentOutput, MathUtil.clamp(_pid.calculate(_yaw, 0) ,-0.2, 0.2));
+        _motor.set(ControlMode.PercentOutput, MathUtil.clamp(_pid.calculate(_yaw, 0) ,-0.25, 0.25));
         System.out.println(_yaw);
     } else {
       _motor.set(ControlMode.PercentOutput, 0);

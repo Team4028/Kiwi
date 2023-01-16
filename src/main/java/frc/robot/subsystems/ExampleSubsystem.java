@@ -21,7 +21,7 @@ public class ExampleSubsystem extends SubsystemBase {
   PIDController _pid;
   public ExampleSubsystem() {
     _motor = new TalonSRX(5);
-    _cam = new PhotonCamera("HD_Webcam_C525");
+    _cam = new PhotonCamera("Global_Shutter_Camera");
     _pid = new PIDController(0.008, 0, 0);
   }
 

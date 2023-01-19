@@ -15,7 +15,7 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ExampleSubsystem extends SubsystemBase {
-  
+
   TalonSRX _motor;
   PhotonCamera _cam;
   PIDController _pid;
